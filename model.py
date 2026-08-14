@@ -90,8 +90,23 @@ def four_in_a_row_diagonal_down_right(board):
                 return 2
     return 0
 
-# Step 9 - four_in_a_row_diagonal_up_right (not yet solved)
-# TODO: implement
+# Step 9 - four_in_a_row_diagonal_up_right
+def four_in_a_row_diagonal_up_right(board):
+    # Rows MUST start lower down (indices 3, 4, 5) so we can safely subtract 3
+    for i in range(3, 6):
+        # Columns start at the left (indices 0, 1, 2, 3) so we can safely add 3
+        for j in range(4):
+            a = board[i, j]
+            b = board[i-1, j+1]  # Up 1, Right 1
+            c = board[i-2, j+2]  # Up 2, Right 2
+            d = board[i-3, j+3]  # Up 3, Right 3
+            
+            if a == b == c == d == 1:
+                return 1
+            elif a == b == c == d == 2:
+                return 2
+                
+    return 0
 
 # Step 10 - check_winner (not yet solved)
 # TODO: implement
