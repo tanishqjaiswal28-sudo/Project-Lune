@@ -48,8 +48,18 @@ def valid_moves(board):
     # TODO: return a list of column indices that still have at least one empty row
     return np.where(board[0,:] == 0)[0].tolist()
 
-# Step 6 - four_in_a_row_horizontal (not yet solved)
-# TODO: implement
+# Step 6 - four_in_a_row_horizontal
+def four_in_a_row_horizontal(board):
+    # TODO: scan every row for four consecutive matching non-zero pieces horizontally
+    p1 = (board == 1)
+    p2 = (board == 2)
+    if (p1[:, :-3] & p1[:, 1:-2] & p1[:, 2:-1] & p1[:, 3:]).any():
+        return 1
+        
+    if (p2[:, :-3] & p2[:, 1:-2] & p2[:, 2:-1] & p2[:, 3:]).any():
+        return 2
+        
+    return 0
 
 # Step 7 - four_in_a_row_vertical (not yet solved)
 # TODO: implement
