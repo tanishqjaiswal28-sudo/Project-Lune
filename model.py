@@ -150,8 +150,14 @@ def other_player(player):
     # TODO: return the opponent's player code (1 <-> 2)
     return 3-player
 
-# Step 14 - step_env (not yet solved)
-# TODO: implement
+# Step 14 - step_env
+def step_env(board, column, player):
+    # TODO: drop piece for player, then return (new_board, done, winner, next_player).
+    newboard = drop_piece(board, column, player)
+    done = is_terminal(newboard)[0]
+    winner = is_terminal(newboard)[1]
+    next_player = other_player(player)
+    return (newboard, done, winner, next_player)
 
 # Step 15 - encode_board (not yet solved)
 # TODO: implement
