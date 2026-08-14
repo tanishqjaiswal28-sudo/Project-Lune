@@ -61,8 +61,19 @@ def four_in_a_row_horizontal(board):
         
     return 0
 
-# Step 7 - four_in_a_row_vertical (not yet solved)
-# TODO: implement
+# Step 7 - four_in_a_row_vertical
+def four_in_a_row_vertical(board):
+    p1 = (board == 1)
+    p2 = (board == 2)   
+    
+    # We need 4 slices, shifting down the rows by 1 each time
+    if (p1[:-3, :] & p1[1:-2, :] & p1[2:-1, :] & p1[3:, :]).any():
+        return 1
+        
+    if (p2[:-3, :] & p2[1:-2, :] & p2[2:-1, :] & p2[3:, :]).any():
+        return 2
+        
+    return 0
 
 # Step 8 - four_in_a_row_diagonal_down_right (not yet solved)
 # TODO: implement
